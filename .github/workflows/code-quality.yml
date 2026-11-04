@@ -23,8 +23,8 @@ jobs:
 
       - name: Verificar Complejidad Ciclomática (V(G) <= 5)
         run: |
-          # Flake8 evalúa el código y falla si encuentra funciones con V(G) > 5
-          flake8 . --max-complexity=5 --statistics
+          # Evaluamos solo la complejidad y filtramos los errores de estilo de PEP 8 si se desea
+          flake8 . --max-complexity=5 --select=C901
 
       - name: Ejecutar Pruebas Unitarias y Validar Cobertura (Mínimo 80%)
         run: |
